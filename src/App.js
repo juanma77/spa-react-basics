@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+function HelloWorldComponent(props){
+  return (
+  <div id="hello-world-component">
+    <h3>{ props.subtitle }</h3>  
+    <p>{ props.mytext }</p>
+  </div> 
+  );
+}
+
+// Este componente App es el padre; aquí mandamos props o propiedades, en este en particular usamos "mytext" y "subtitle", y ya que la enviamos como propiedad desde el componente hijo que está incrustado en el padre, debemos de recibir esos props en el componente hijo
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      This is my new component using normal function: <HelloWorldComponent mytext="Hello John" subtitle="Subtitle 1"/>
+      <HelloWorldComponent mytext="Hello All" subtitle="Subtitle 2"/>
+      <HelloWorldComponent mytext="Hello to You!" subtitle="Subtitle 3"/>
     </div>
   );
 }
