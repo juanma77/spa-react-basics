@@ -16,17 +16,23 @@ class HelloWorldComponent extends React.Component {
     show: true
   }
 
+  changeState = () => {
+    this.setState({ show: !this.state.show });
+  }
+
   render(){
     if(this.state.show){
       return (
         <div id="hello-world-component">
           <h3>{ this.props.subtitle }</h3>  
           <p>{ this.props.mytext }</p>
-          <button onClick={ () => this.setState({ show: false }) } type="button" class="btn btn-primary">Change State</button>
+          <button onClick={ this.changeState } type="button" className="btn btn-primary">Change State</button>
         </div> 
       );
     }else{
-      return <h1>There are not elements!</h1>
+      return <div><h1>There are not elements!</h1>
+      <button type="button" className="btn btn-primary" onClick={ this.changeState }>Change state</button></div>
+     
     } 
   }
 }
